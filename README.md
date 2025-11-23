@@ -2,6 +2,7 @@
 <h3>Requirements</h3>
 
 Install .NET Desktop Runtime (the project uses Windows Forms).
+Execute the code included in the TestProject.sql
 
 <h3>Configuration</h3>
 

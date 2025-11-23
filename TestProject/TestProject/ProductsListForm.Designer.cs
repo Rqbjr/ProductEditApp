@@ -33,7 +33,6 @@
             DeleteProductButton = new Button();
             RefreshProductButton = new Button();
             ProductsSearchTextBox = new TextBox();
-            CategoryFilterComboBox = new ComboBox();
             ProductsDataGridView = new DataGridView();
             NameColumn = new DataGridViewTextBoxColumn();
             IdColumn = new DataGridViewTextBoxColumn();
@@ -46,9 +45,10 @@
             // 
             // AddProductButton
             // 
-            AddProductButton.Location = new Point(12, 404);
+            AddProductButton.Location = new Point(10, 323);
+            AddProductButton.Margin = new Padding(2);
             AddProductButton.Name = "AddProductButton";
-            AddProductButton.Size = new Size(112, 34);
+            AddProductButton.Size = new Size(90, 27);
             AddProductButton.TabIndex = 0;
             AddProductButton.Text = "Add";
             AddProductButton.UseVisualStyleBackColor = true;
@@ -56,10 +56,11 @@
             // 
             // EditProductButton
             // 
-            EditProductButton.Location = new Point(236, 404);
+            EditProductButton.Location = new Point(189, 323);
+            EditProductButton.Margin = new Padding(2);
             EditProductButton.Name = "EditProductButton";
             EditProductButton.RightToLeft = RightToLeft.Yes;
-            EditProductButton.Size = new Size(112, 34);
+            EditProductButton.Size = new Size(90, 27);
             EditProductButton.TabIndex = 1;
             EditProductButton.Text = "Edit";
             EditProductButton.UseVisualStyleBackColor = true;
@@ -67,9 +68,10 @@
             // 
             // DeleteProductButton
             // 
-            DeleteProductButton.Location = new Point(676, 404);
+            DeleteProductButton.Location = new Point(541, 323);
+            DeleteProductButton.Margin = new Padding(2);
             DeleteProductButton.Name = "DeleteProductButton";
-            DeleteProductButton.Size = new Size(112, 34);
+            DeleteProductButton.Size = new Size(90, 27);
             DeleteProductButton.TabIndex = 2;
             DeleteProductButton.Text = "Delete";
             DeleteProductButton.UseVisualStyleBackColor = true;
@@ -77,9 +79,10 @@
             // 
             // RefreshProductButton
             // 
-            RefreshProductButton.Location = new Point(471, 404);
+            RefreshProductButton.Location = new Point(377, 323);
+            RefreshProductButton.Margin = new Padding(2);
             RefreshProductButton.Name = "RefreshProductButton";
-            RefreshProductButton.Size = new Size(112, 34);
+            RefreshProductButton.Size = new Size(90, 27);
             RefreshProductButton.TabIndex = 3;
             RefreshProductButton.Text = "Refresh";
             RefreshProductButton.UseVisualStyleBackColor = true;
@@ -87,19 +90,12 @@
             // 
             // ProductsSearchTextBox
             // 
-            ProductsSearchTextBox.Location = new Point(22, 12);
+            ProductsSearchTextBox.Location = new Point(18, 10);
+            ProductsSearchTextBox.Margin = new Padding(2);
             ProductsSearchTextBox.Name = "ProductsSearchTextBox";
-            ProductsSearchTextBox.Size = new Size(234, 31);
+            ProductsSearchTextBox.Size = new Size(188, 27);
             ProductsSearchTextBox.TabIndex = 4;
             ProductsSearchTextBox.TextChanged += ProductsSearchTextBox_TextChanged;
-            // 
-            // CategoryFilterComboBox
-            // 
-            CategoryFilterComboBox.FormattingEnabled = true;
-            CategoryFilterComboBox.Location = new Point(262, 12);
-            CategoryFilterComboBox.Name = "CategoryFilterComboBox";
-            CategoryFilterComboBox.Size = new Size(182, 33);
-            CategoryFilterComboBox.TabIndex = 5;
             // 
             // ProductsDataGridView
             // 
@@ -107,13 +103,13 @@
             ProductsDataGridView.AllowUserToDeleteRows = false;
             ProductsDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             ProductsDataGridView.Columns.AddRange(new DataGridViewColumn[] { NameColumn, IdColumn, CategoryColumn, QuantityColumn, PriceColumn, LastUpdatedColumn });
-            ProductsDataGridView.Location = new Point(22, 60);
+            ProductsDataGridView.Location = new Point(18, 48);
+            ProductsDataGridView.Margin = new Padding(2);
             ProductsDataGridView.Name = "ProductsDataGridView";
             ProductsDataGridView.RowHeadersVisible = false;
             ProductsDataGridView.RowHeadersWidth = 62;
-            ProductsDataGridView.Size = new Size(756, 318);
+            ProductsDataGridView.Size = new Size(605, 254);
             ProductsDataGridView.TabIndex = 6;
-            ProductsDataGridView.RowsAdded += ProductsDataGridView_RowsAdded;
             // 
             // NameColumn
             // 
@@ -168,16 +164,16 @@
             // 
             // ProductsListForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(640, 360);
             Controls.Add(ProductsDataGridView);
-            Controls.Add(CategoryFilterComboBox);
             Controls.Add(ProductsSearchTextBox);
             Controls.Add(RefreshProductButton);
             Controls.Add(DeleteProductButton);
             Controls.Add(EditProductButton);
             Controls.Add(AddProductButton);
+            Margin = new Padding(2);
             Name = "ProductsListForm";
             Text = "Products editor";
             Load += ProductsEditForm_Load;
@@ -193,7 +189,6 @@
         private Button DeleteProductButton;
         private Button RefreshProductButton;
         private TextBox ProductsSearchTextBox;
-        private ComboBox CategoryFilterComboBox;
         private DataGridView ProductsDataGridView;
         private DataGridViewTextBoxColumn NameColumn;
         private DataGridViewTextBoxColumn IdColumn;

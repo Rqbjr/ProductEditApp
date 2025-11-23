@@ -30,29 +30,17 @@ namespace TestProject
         }
         private void ProductsSearchTextBox_TextChanged(object sender, EventArgs e)
         {
-            SetFilter();   
-        }
-        private void CategoryFilterComboBox_SelectedIndexchanged(object sender, EventArgs e)
-        {
             SetFilter();
         }
-
+      
         private void SetFilter()
         {
-            (ProductsDataGridView.DataSource as DataView).RowFilter = string.Format("Name like '{0}%' and Category like '{1}'", ProductsSearchTextBox.Text, CategoryFilterComboBox.SelectedValue);
+            (ProductsDataGridView.DataSource as DataView).RowFilter = string.Format("Name like '{0}%'", ProductsSearchTextBox.Text);
         }
 
-        private void ProductsDataGridView_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
-        {
-            CategoryFilterComboBox.DataSource =
-                (ProductsDataGridView.DataSource as DataView).Table.Rows
-                .Cast<DataRow>()
-                .Select(x => x.Field<string>("Category"))
-                .ToList();
-        }
         private void DeleteProduct()
         {
-            if(MessageBox.Show("Do you want to delete a product", "Product delete", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show("Do you want to delete a product", "Product delete", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 DeleteProduct((int)ProductsDataGridView.SelectedCells[0].OwningRow.Cells["IdColumn"].Value);
             }
@@ -62,7 +50,7 @@ namespace TestProject
 
         private void EditProduct()
         {
-            ProductEditForm form 
+            ProductEditForm form
                 = new ProductEditForm(
                     (int)ProductsDataGridView.SelectedCells[0].OwningRow.Cells["IdColumn"].Value,
                     (string)ProductsDataGridView.SelectedCells[0].OwningRow.Cells["NameColumn"].Value,
@@ -73,7 +61,7 @@ namespace TestProject
             {
                 var data = form.GetData();
 
-                UpdateProduct((int) data[0], (string)data[1], (string)data[2], (int)data[3], (decimal)data[4]);
+                UpdateProduct((int)data[0], (string)data[1], (string)data[2], (int)data[3], (decimal)data[4]);
             }
             RefreshProducts();
         }
@@ -92,7 +80,7 @@ namespace TestProject
 
         private void RefreshProducts()
         {
-            DataTable dt = GetProductList(); 
+            DataTable dt = GetProductList();
             DataView dv = new DataView(dt);
             ProductsDataGridView.DataSource = dv;
         }
@@ -158,5 +146,6 @@ namespace TestProject
             DBHelper.ConnectionString = DBHelper.ReadConnectionStringFromFile("./config");
             RefreshProducts();
         }
-    }
+
+         }
 }
